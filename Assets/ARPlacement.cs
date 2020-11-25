@@ -55,5 +55,15 @@ public class ARPlacement : MonoBehaviour
                 targetMarker.SetActive(true);
             }
         }
+
+        // Quando o usuário tocar na tela e o targetMarker estiver ativo, criamos uma aranha e ativamos ela
+        if (Input.GetMouseButtonDown(0) && targetMarker.activeSelf)
+        {
+            // Faz um clone da aranha na mesma posição e rotação do TargetMarker
+            var spiderClone = Instantiate(spider, transform.position, transform.rotation);
+
+            // Ativa a aranha que acabou de ser criada
+            spiderClone.SetActive(true);
+        }
     }
 }
